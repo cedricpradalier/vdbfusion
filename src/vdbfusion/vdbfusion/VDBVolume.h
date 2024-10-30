@@ -35,7 +35,7 @@ namespace vdbfusion {
 class VDBVolume {
 public:
     VDBVolume(float voxel_size, float sdf_trunc, bool space_carving = false);
-    ~VDBVolume() = default;
+    virtual ~VDBVolume() = default;
 
 public:
     /// @brief Integrates a new (globally aligned) PointCloud into the current

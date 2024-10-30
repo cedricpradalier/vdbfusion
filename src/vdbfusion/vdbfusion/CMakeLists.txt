@@ -36,10 +36,10 @@ if(NOT TARGET Eigen3::Eigen OR NOT TARGET OpenVDB::openvdb)
   find_package(OpenVDB REQUIRED)
 endif()
 
-target_sources(vdbfusion PRIVATE MarchingCubes.cpp VDBVolume.cpp)
+target_sources(vdbfusion PRIVATE MarchingCubes.cpp ColoredMarchingCubes.cpp VDBVolume.cpp VDBColoredVolume.cpp)
 target_compile_features(vdbfusion PUBLIC cxx_std_11)
 target_compile_options(vdbfusion PRIVATE -Wall -Wextra)
-set_target_properties(vdbfusion PROPERTIES PUBLIC_HEADER "VDBVolume.h")
+set_target_properties(vdbfusion PROPERTIES PUBLIC_HEADER "VDBVolume.h;VDBColoredVolume.h")
 target_include_directories(
   vdbfusion PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/..>
                                                        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
